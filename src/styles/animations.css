@@ -1,0 +1,53 @@
+/* src/styles/animations.css */
+
+/* Shake animation for wrong answers */
+.shake {
+  animation: shake-animation 0.5s ease-in-out forwards;
+}
+
+@keyframes shake-animation {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+  20%, 40%, 60%, 80% { transform: translateX(8px); }
+}
+
+/* FIX: Ensures the card container centers properly on the page
+  and holds its 3D space for the flip effect.
+*/
+.card-flipper {
+  position: relative; /* Establishes a positioning context for the cards inside */
+  width: 320px;
+  height: 450px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.75, 0, 0.25, 1);
+}
+
+/* This class triggers the 180-degree flip */
+.card-flipper.is-flipping {
+  transform: rotateY(180deg);
+}
+
+/*
+  FIX: Common styles for both the front (Quiz) and back (Pokemon) cards.
+  They are layered perfectly on top of each other inside the flipper.
+*/
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back of the element when it's facing away */
+  -webkit-backface-visibility: hidden; /* For Safari compatibility */
+  
+  /* This ensures they are centered within the flipper if their content overflows */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The back of the card starts pre-rotated 180 degrees */
+.card-back {
+  transform: rotateY(180deg);
+}
