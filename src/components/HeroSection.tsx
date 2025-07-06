@@ -138,10 +138,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="hero-text"
           >
-            <Narrator 
-              text="Embark on Your Health Adventure. Transform your health journey into an exciting quest. Explore real-time disease outbreak data, weather intelligence, and AI health assistance, all while interacting with your favorite characters. Collect Pokemon Cards By Performing Daily Challenges And Quizzes To Climb The Leaderboards"
-              className="hero-narrator"
-            />
+          
             
             <h1 className="hero-title" style={heroTitleStyle}>
               <span className="title-word title-embark">Embark</span> on Your{' '}
